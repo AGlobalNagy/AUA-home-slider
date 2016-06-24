@@ -55,6 +55,10 @@ Craftyslide CSS Styles
 #pagination li a.active {
     background-position:0 10px;
 }
+.outer_inner #main #slideshow ul li{
+    padding-left:0px;
+}
+
 .caption {
     width:100%;
     margin:0;
@@ -71,11 +75,11 @@ Craftyslide CSS Styles
 </style>
 <div id="slideshow">
 <ul>
-	<li><img src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=33998" title="Testing" /></li>
-	<li><img src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34000" title="Testing" /></li>
-	<li><img src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34002" title="Testing" /></li>
-	<li><img src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34004" title="Testing" /></li>
-	<li><img src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34006" title="Testing" /></li>
+	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=33998" title="Testing" /></li>
+	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34000" title="Testing" /></li>
+	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34002" title="Testing" /></li>
+	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34004" title="Testing" /></li>
+	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34006" title="Testing" /></li>
 </ul>
 </div>
 <script language="JavaScript" type="text/javascript">
