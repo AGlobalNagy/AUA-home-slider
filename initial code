@@ -1,93 +1,79 @@
-<div><script language="JavaScript" type="text/javascript">
-/*
-* Craftyslide
-* Created by: Abid Din - http://craftedpixelz.co.uk
-* Version: 1.0
-* Copyright: Crafted Pixelz
-* License: MIT license
-* Updated: 7th June 2011
-*/
-(function($){$.fn.craftyslide=function(options){var defaults={"width":675,"height":300,"pagination":true,"fadetime":350,"delay":5000};var options=$.extend(defaults,options);return this.each(function(){var $this=$(this);var $slides=$this.find("ul li");$slides.not(':first').hide();function paginate(){$this.append("<ol id='pagination' />");var i=1;$slides.each(function(){$(this).attr("id","slide"+i);$("#pagination").append("<li><a href='#slide"+i+"'>"+i+"</a></li>");i++;});$("#pagination li a:first").addClass("active");}function captions(){$slides.each(function(){$caption=$(this).find("img").attr("title");if($caption!==undefined){$(this).prepend("<p class='caption'>"+$caption+"</p>");}$slides.filter(":first").find(".caption").css("bottom",0);});}function manual(){var $pagination=$("#pagination li a");$pagination.click(function(e){e.preventDefault();var $current=$(this.hash);if($current.is(":hidden")){$slides.fadeOut(options.fadetime);$current.fadeIn(options.fadetime);$pagination.removeClass("active");$(this).addClass("active");$(".caption").css("bottom","-37px");$current.find(".caption").delay(300).animate({bottom:0},300);}});}function auto(){setInterval(function(){$slides.filter(":first-child").fadeOut(options.fadetime).next("li").fadeIn(options.fadetime).end().appendTo("#slideshow ul");$slides.each(function(){if($slides.is(":visible")){$(".caption").css("bottom","-37px");$(this).find(".caption").delay(300).animate({bottom:0},300);}});},options.delay);}$this.width(options.width);$this.find("ul, li img").width(options.width);$this.height(options.height);$this.find("ul, li").height(options.height);if(options.pagination===true){paginate();}else{auto();}captions();manual();});};})(jQuery);
-</script>
-<style type="text/css">/*
-Craftyslide CSS Styles
-*/
-#slideshow {
-    margin:0;
-    padding:0;
-    position:relative;
-    border:15px solid #f8f8f8;
-    -webkit-box-shadow:0 3px 5px #999;
-    -moz-box-shadow:0 3px 5px #999;
-    box-shadow:0 3px 5px #999;
+<style type="text/css">.carousel{
+    background: transparent;
+    margin-top: 20px;
 }
-#slideshow ul {
-    position:relative;
-    overflow:hidden;
-    margin:0;
-    padding:0;
-    list-style:none;
+.carousel .left > i,
+.carousel .right > i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
-#slideshow ul li {
-    position:absolute;
-    top:0;
-    left:0;
-    margin:0;
-    padding:0;
-    list-style:none;
+.carousel .right > i {
+  left: auto;
+  right: 20px;
 }
-#pagination {
-    clear:both;
-    width:75px;
-    margin:25px auto 0;
-    padding:0;
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
 }
-#pagination li {
-    list-style:none;
-    float:left;
-    margin:0 2px;
+.bs-example{
+	margin: 10px;
 }
-#pagination li a {
-    display:block;
-    width:10px;
-    height:10px;
-}
-#pagination li a.active {
-    background-position:0 10px;
-}
-.outer_inner #main #slideshow ul li{
-    padding-left:0px;
-}
-
-.caption {
-    width:100%;
-    margin:0;
-    padding:10px;
-    position:absolute;
-    left:0;
-    font-family:Helvetica, Arial, sans-serif;
-    font-size:14px;
-    font-weight:lighter;
-    color:#fff;
-    border-top:1px solid #000;
-    background:rgba(0,0,0,0.6);
+.carousel-caption{
+	top: 8px;
+    bottom: auto;
+    left: 0;
+    right: 0; 
+    background: rgba(0, 0, 0, 0.4); 
+    color: white;
+    padding: 5px;
+    max-width: 100%;
+    position: caption-top;
 }
 </style>
-<div id="slideshow">
-<ul>
-	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=33998" title="Testing" /></li>
-	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34000" title="Testing" /></li>
-	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34002" title="Testing" /></li>
-	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34004" title="Testing" /></li>
-	<li><img src="http://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34006" title="Testing" /></li>
-</ul>
+<div class="carousel slide" data-ride="carousel" id="myCarousel">
+<ol class="carousel-indicators">
+		<li class="active" data-slide-to="0" data-target="#carousel-example-generic">&nbsp;</li>
+		<li data-slide-to="1" data-target="#myCarousel">&nbsp;</li>
+		<li data-slide-to="2" data-target="#myCarousel">&nbsp;</li>
+		<li data-slide-to="3" data-target="#myCarousel">&nbsp;</li>
+		<li data-slide-to="4" data-target="#myCarousel">&nbsp;</li>
+</ol>
+
+<!-- Carousel items -->
+<div class="carousel-inner">
+<div class="active item"><img alt="Student in the United Arab Emirates" src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34634" />
+<div class="carousel-caption">
+<h4>46% of all semester long programs cost less than or equal to the cost of attendance at AU,<br />
+even after factoring in the cost for airfare, passport and required visas</h4>
 </div>
-<script language="JavaScript" type="text/javascript">
-  $("#slideshow").craftyslide({
-  'width': 675,
-  'height': 300,
-  'pagination': true,
-  'fadetime': 500,
-  'delay': 2500
-});
-</script></div>
+</div>
+
+<div class="item"><img alt="Airport walkway in Ireland" src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34647" />
+<div class="carousel-caption">
+<h4>70% of students study abroad prior to completing their degree program</h4>
+</div>
+</div>
+
+<div class="item"><img alt="A colorful city in Italy" src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34628" />
+<div class="carousel-caption">
+<h4>60% of programs require no prior language and course work can be taken in English on-site</h4>
+</div>
+</div>
+
+<div class="item"><img alt="Student at the Great Wall" src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34624" />
+<div class="carousel-caption">
+<h4>Check our calendar of events for all upcoming information sessions</h4>
+</div>
+</div>
+
+<div class="item"><img alt="In front of gilded gates" src="https://auabroad.american.edu/_customtags/ct_Image.cfm?Image_ID=34636" />
+<div class="carousel-caption">&nbsp;</div>
+</div>
+
+<!-- Carousel controls -->
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+<i aria-hidden="true" class="fa fa-chevron-left fa-2x"><span class="sr-only">Left arrow</span></i></a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+<i aria-hidden="true" class="fa fa-chevron-right fa-2x"><span class="sr-only">Right arrow</span></i></a>
+</div>
